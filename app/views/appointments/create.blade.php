@@ -9,24 +9,24 @@
 <div class="form-group">
 	<label class="col-md-4 control-label" for="textinput">Date of Appointment:</label>  
 	<div class="col-md-4 date input-group">
-		<input type="text" class="form-control"><span class="input-group-addon">
+		<input id="date" name="date" type="text" class="form-control"><span class="input-group-addon">
 		<i class="glyphicon glyphicon-th" style="font-size:20px"></i></span>
 	</div>
 </div>
 
 
 <div class="form-group has-feedback">
-	<label class="col-md-4 control-label" for="timepicker1">Time of Appointment:</label>  
-	<div class="col-md-4 input-group time">
-		<input id="timepicker1" type="text" class="form-control input-small">
+	<label class="col-md-4 control-label" for="timepicker1">Time of Appointment:</label>
+	<div class="col-md-4 time">
+		<input id="time" name="time" type="text" class="form-control input-small">
 		<span class="addon"><i class="glyphicon glyphicon-time form-control-feedback"></i></span>
 	</div>
 </div>
 
 <div class="form-group has-feedback">
-	<label class="col-md-4 control-label" for="timepicker1">Doctor:</label>  
+	<label class="col-md-4 control-label">Doctor:</label>  
 	<div class="col-md-4">
-		<input id="doctor" type="text" class="form-control input-small">
+		{{ Form::select('staff_id', $staff, null, array('class' => 'form-control input-small')) }}
 	</div>
 </div>
 
@@ -61,15 +61,16 @@
 
 @section('footerScripts')
 $(document).ready(function(){
-	$('.date').datepicker({
+	$('#date').datepicker({
 		format: "mm/dd/yyyy",
 		weekStart: 0,
 		autoclose: true,
 		todayHighlight: true
 	});
 	
-	$('.time').timepicker({
-		minuteStep: 30
+	$('#time').timepicker({
+		minuteStep: 30,
+		defaultTime: '9:00 AM',
 	});
 });
 

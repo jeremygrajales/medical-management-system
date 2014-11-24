@@ -31,8 +31,8 @@ Route::get('appointment/{appointment}/show', array('as' => 'appointment.show', '
 
 Route::get('appointment/show-all', array('as' => 'appointment.show.all', 'uses' => 'AppointmentsController@showAll'));
 
-Route::get('appointment/{appointment}/edit', array('as' => 'appointment.edit', 'uses' => 'AppointmentsController@edit'));
+//Route::get('appointment/{appointment}/edit', array('as' => 'appointment.edit', 'uses' => 'AppointmentsController@edit'));
 Route::post('appointment/{appointment}/edit', array('as' => 'appointment.edit', 'uses' => 'AppointmentsController@edit'));
 
-Route::get('appointment/{appointment}/status/edit', array('as' => 'appointment.status.edit', 'uses' => 'AppointmentsController@statusEdit'));
-Route::post('appointment/{appointment}/status/edit', array('as' => 'appointment.status.edit', 'uses' => 'AppointmentsController@statusEdit'));
+Route::get('appointment/{appointment}/status/edit', array('as' => 'appointment.status.edit', 'uses' => 'AppointmentsController@changeStatus'));
+Route::post('appointment/{appointment}/status/edit', array('as' => 'appointment.status.edit', 'uses' => 'AppointmentsController@changeStatus'));

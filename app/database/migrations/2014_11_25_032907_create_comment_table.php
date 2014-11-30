@@ -14,8 +14,8 @@ class CreateCommentTable extends Migration {
 	{
 		Schema::create('comment', function($table) { 
 			$table->increments('id');
-			$table->id('message_id');
-			$table->id('commentor');
+			$table->integer('message_id');
+			$table->integer('commentor');
 			$table->text('comment');
 			$table->timestamp('timestamp');
 		});

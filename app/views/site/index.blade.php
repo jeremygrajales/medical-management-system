@@ -1,0 +1,1 @@
+ Welcome to the Medical Management System. You must login to continue. <a href='users/login'>Click here</a> to login.

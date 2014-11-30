@@ -1,5 +1,6 @@
 <html>
 	<head>
+		
 		<!-- JQuery -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<!-- JQuery UI -->
@@ -8,7 +9,7 @@
 
 		<!-- Bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">-->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 		<!-- Date Picker -->
@@ -20,14 +21,18 @@
 		<link href="{{ asset('plugins/timepicker/css/bootstrap-responsive.css') }}" rel="stylesheet">
 		<script src="{{ asset('plugins/timepicker/js/bootstrap-timepicker.min.js') }}"></script>
 		
+		<!-- Theme CSS -->
+		<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 		
 		
 	</head>
-
-	<body>
-
-		@yield('content')
-
+	
+	<body>		
+		<div class="container">
+			@include('home.navigation')
+		
+			@yield('content')
+		</div>
 	</body>
 	<script>
 		@yield('footerScripts')

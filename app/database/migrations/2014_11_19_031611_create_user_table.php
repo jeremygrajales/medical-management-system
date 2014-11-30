@@ -18,8 +18,17 @@ class CreateUserTable extends Migration {
 			$table->integer('staff_id');
 			$table->string('first_name');
 			$table->string('last_name');
-			$table->string('email');
-			$table->string('hash');
+			
+			$table->string('email')->unique();
+            $table->string('username')->unique();
+            
+			// Confide fields
+			$table->string('password');
+            $table->string('confirmation_code');
+            $table->string('remember_token')->nullable();
+            $table->boolean('confirmed')->default(true);
+			//$table->string('hash');
+			
 			$table->timestamp('last_login');
 			$table->timestamps();
 		});

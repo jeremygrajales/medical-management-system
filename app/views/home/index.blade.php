@@ -1,0 +1,2 @@
+@extends('home.layouts.master')
+

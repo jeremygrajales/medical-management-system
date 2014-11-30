@@ -1,3 +1,5 @@
+@extends('home.layouts.master')
+
 {{ Form::open(array('route' => 'appointment.request', 'method' => 'post')) }}
 
 Reason for appointment:<br>

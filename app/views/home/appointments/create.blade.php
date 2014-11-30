@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('home.layouts.master')
 
 
 @section('content')
@@ -38,9 +38,9 @@
 </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="contstraints">Rescheduling Constraints:</label>
+  <label class="col-md-4 control-label" for="constraints">Rescheduling Constraints:</label>
   <div class="col-md-4">                     
-    <textarea class="form-control" id="contstraints" name="contstraints"></textarea>
+    <textarea class="form-control" id="constraints" name="constraints"></textarea>
   </div>
 </div>
 

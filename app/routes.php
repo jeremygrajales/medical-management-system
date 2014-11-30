@@ -45,12 +45,12 @@ Route::controller('user', 'UserController');
 Route::group(array('prefix' => 'home', 'before' => 'auth'), function()
 {
 
-
 	// Appointment Management
 	Route::get('appointment/create', array('as' => 'appointment.create', 'uses' => 'AppointmentsController@create'));
 	Route::post('appointment/create', array('as' => 'appointment.create', 'uses' => 'AppointmentsController@create'));
 	Route::get('appointment/{appointment}/show', array('as' => 'appointment.show', 'uses' => 'AppointmentsController@show'));
 	Route::get('appointment/show-all', array('as' => 'appointment.show.all', 'uses' => 'AppointmentsController@showAll'));
+	Route::get('appointment/show-all/{requestID}', array('as' => 'appointment.show.all.id', 'uses' => 'AppointmentsController@showAll'));
 	//Route::get('appointment/{appointment}/edit', array('as' => 'appointment.edit', 'uses' => 'AppointmentsController@edit'));
 	Route::post('appointment/{appointment}/edit', array('as' => 'appointment.edit', 'uses' => 'AppointmentsController@edit'));
 	Route::get('appointment/{appointment}/status/edit', array('as' => 'appointment.status.edit', 'uses' => 'AppointmentsController@changeStatus'));
@@ -59,8 +59,8 @@ Route::group(array('prefix' => 'home', 'before' => 'auth'), function()
 	// Patient Management
 	Route::get('patient/create', array('as' => 'patient.create', 'uses' => 'PatientController@create'));
 	Route::post('patient/create', array('as' => 'patient.create', 'uses' => 'PatientController@create'));
+	Route::get('patient/show-all', array('as' => 'patient.show.all', 'uses' => 'PatientController@showAll'));
 	
-
 	Route::get('/', array('as' => 'home.index', 'uses' => 'HomeController@getIndex'));
     
 

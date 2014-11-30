@@ -29,8 +29,6 @@
 	
 	<body>		
 		<div class="container">
-			@include('home.navigation')
-		
 			@yield('content')
 		</div>
 	</body>

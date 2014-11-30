@@ -17,7 +17,11 @@ class HomeController extends Controller {
 
 	public function getIndex()
 	{
-		return View::make('home/index');
+		$user = Confide::user();
+		if(!$user->isStaff() && Patient::find($user->id) == null)
+			return Redirect::route('patient.create');
+		else
+			return View::make('home/index', compact('user'));
 	}
 
 }

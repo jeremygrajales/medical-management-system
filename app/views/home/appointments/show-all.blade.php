@@ -1,7 +1,10 @@
 @extends('home.layouts.master')
 
-
 @section('content')
+
+@if($user->isStaff() && $patient != null)
+	All appointments for <b>{{ ($patient->first_name . ' ' . $patient->last_name) }}</b>
+@endif
 
 @foreach($appointments as $appointment)
 	

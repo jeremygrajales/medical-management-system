@@ -7,14 +7,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="./" class="navbar-brand">Medical Management System</a>
+            <a href="{{ URL::route('home.index') }}" class="navbar-brand">Medical Management System</a>
         </div>
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
-                <li>
+                <li @if(starts_with(Route::currentRouteName(), 'patient')) class="active"@endif>
                     <a href="{{ URL::route('patient.create') }}">Getting started</a>
                 </li>
-                <li class="dropdown">
+                @if($user->isStaff())
+				<li>
+                    <a href="{{ URL::route('patient.show.all') }}">Patients</a>
+                </li>
+                @else
+				<li class="dropdown @if(starts_with(Route::currentRouteName(), 'appointment')) active @endif">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Appointments <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ URL::route('appointment.create') }}">Create</a>
@@ -23,7 +28,8 @@
                         </li>
                     </ul>
                 </li>
-				<li class="dropdown">
+				@endif
+				<li class="dropdown @if(starts_with(Route::currentRouteName(), 'billing')) active @endif"">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Billing <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ URL::route('appointment.create') }}">Make Payment</a>
@@ -32,7 +38,7 @@
                         </li>
                     </ul>
                 </li>
-				<li class="dropdown">
+				<li class="dropdown @if(starts_with(Route::currentRouteName(), 'messages')) active @endif"">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Messages <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ URL::route('appointment.create') }}">New Message</a>

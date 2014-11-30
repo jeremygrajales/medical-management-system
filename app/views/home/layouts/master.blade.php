@@ -31,6 +31,13 @@
 		@include('home.navigation')
 		
 		<div class="container" style="margin-top:100px !important;">
+			{{ Session::has('message') ? 
+			'<div class="alert alert-'.(Session::get('message_type') == 'success'?'success':'danger').' alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					'.Session::get('message').'
+			</div>'
+			: '' }}
+
 			@yield('content')
 		</div>
 	</body>

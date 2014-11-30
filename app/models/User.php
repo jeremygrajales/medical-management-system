@@ -21,7 +21,10 @@ class User extends Eloquent implements ConfideUserInterface {
 	 */
 	protected $table = 'user';
 	protected $fillable = array('first_name', 'last_name', 'email');
-	
+
+	public function isStaff() {
+		return !is_null(Staff::find($this->id));
+	}
 }
 
 

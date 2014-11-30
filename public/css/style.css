@@ -19,3 +19,14 @@
 .navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #FFFFFF}
 .navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #FFFFFF}
 
+.text-red {
+	color: #d9534f;
+}
+
+.text-green {
+	color: #5cb85c;
+}
+
+.text-blue {
+	color: 337ab7
+}

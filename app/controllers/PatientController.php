@@ -33,4 +33,13 @@ class PatientController extends Controller {
 			return Redirect::route('home.index');
 		}
 	}
+	
+	public function showAll() {
+		$user = Confide::user();
+		$patients = Patient::join('user', 'user.id', '=', 'patient.user_id')->get();
+		if($user->isStaff())
+			return View::make('home.patient.show-all', compact('user', 'patients'));
+		else
+			return Redirect::route('home.index');
+	}
 }

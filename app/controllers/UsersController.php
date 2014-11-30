@@ -17,7 +17,9 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return View::make(Config::get('confide::signup_form'));
+        //return View::make(Config::get('confide::signup_form'));
+		//return View::make(Config::get('confide::login_form'));
+		return View::make('site.user.create');
     }
 
     /**
@@ -31,7 +33,7 @@ class UsersController extends Controller
         $user = $repo->signup(Input::all());
 
         if ($user->id) {
-            if (Config::get('confide::signup_email')) {
+            /*if (Config::get('confide::signup_email')) {
                 Mail::queueOn(
                     Config::get('confide::email_queue'),
                     Config::get('confide::email_account_confirmation'),
@@ -42,7 +44,7 @@ class UsersController extends Controller
                             ->subject(Lang::get('confide::confide.email.account_confirmation.subject'));
                     }
                 );
-            }
+            }*/
 
             return Redirect::action('UsersController@login')
                 ->with('notice', Lang::get('confide::confide.alerts.account_created'));
@@ -65,7 +67,7 @@ class UsersController extends Controller
         if (Confide::user()) {
             return Redirect::to('/home');
         } else {
-            return View::make(Config::get('confide::login_form'));
+			return View::make('site.user.login');
         }
     }
 

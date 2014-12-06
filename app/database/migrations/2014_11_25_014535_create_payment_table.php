@@ -16,14 +16,13 @@ class CreatePaymentTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id');
 			$table->integer('acct_id');
-			$table->string('first_name');
-			$table->string('last_name');
+			$table->string('name');
 			$table->string('cc_type');
-			$table->integer('cc_num');
+			$table->string('cc_num', 16);
 			$table->integer('cc_code');
 			$table->date('cc_exp_date');
 			$table->decimal('amount', 8, 2);
-			$table->timestamp('date');
+			$table->timestamps();
 		});
 	}
 

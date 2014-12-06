@@ -30,3 +30,14 @@
 .text-blue {
 	color: 337ab7
 }
+
+table.tabular-data {
+	width:100%;
+}
+table.tabular-data td {
+	padding:10px 0px;
+}
+
+.page-height {
+	height:50%;
+}

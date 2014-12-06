@@ -1,5 +1,8 @@
 @extends('home.layouts.master')
 
+
+@section('content')
+
 {{ Form::open(array('route' => 'appointment.request', 'method' => 'post')) }}
 
 Reason for appointment:<br>
@@ -12,3 +15,5 @@ If the selected time and date is not available, do you have alternative preferre
 
 {{ Form::submit() }}
 {{ Form::close() }}
+
+@stop

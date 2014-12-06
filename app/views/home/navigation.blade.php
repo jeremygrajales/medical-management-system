@@ -22,29 +22,28 @@
 				<li class="dropdown @if(starts_with(Route::currentRouteName(), 'appointment')) active @endif">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Appointments <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ URL::route('appointment.create') }}">Create</a>
-                        </li>
-                        <li><a href="{{ URL::route('appointment.show.all') }}">See my appointments</a>
-                        </li>
+                        <li><a href="{{ URL::route('appointment.create') }}">Create</a></li>
+                        <li><a href="{{ URL::route('appointment.show.all') }}">See my appointments</a></li>
                     </ul>
                 </li>
 				@endif
 				<li class="dropdown @if(starts_with(Route::currentRouteName(), 'billing')) active @endif"">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Billing <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ URL::route('appointment.create') }}">Make Payment</a>
-                        </li>
-                        <li><a href="{{ URL::route('appointment.show.all') }}">See Balance</a>
-                        </li>
+                        @if($user->isStaff())
+						<li><a href="{{ URL::route('billing.show-outstanding-charges') }}">Show Accounts Outstanding</a></li>
+                        <li><a href="{{ URL::route('billing.show-payments') }}">Show Payments</a></li>
+						@else
+						<li><a href="{{ URL::route('billing.make-payment') }}">Make Payment</a></li>
+                        <li><a href="{{ URL::route('billing.show-patient-balance') }}">Show Patient Balance</a></li>
+						@endif
                     </ul>
                 </li>
-				<li class="dropdown @if(starts_with(Route::currentRouteName(), 'messages')) active @endif"">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Messages <b class="caret"></b></a>
+				<li class="dropdown @if(starts_with(Route::currentRouteName(), 'conversations')) active @endif"">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Conversations <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ URL::route('appointment.create') }}">New Message</a>
-                        </li>
-                        <li><a href="{{ URL::route('appointment.show.all') }}">See Messages</a>
-                        </li>
+                        <li><a href="{{ URL::route('conversation.create') }}">Start New Conversation</a></li>
+                        <li><a href="{{ URL::route('conversation.show.all') }}">See Conversations</a></li>
                     </ul>
                 </li>
 				                

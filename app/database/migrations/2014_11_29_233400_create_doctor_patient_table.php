@@ -26,7 +26,7 @@ class CreateDoctorPatientTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('doctor_appointment');
+		Schema::drop('doctor_patient');
 	}
 
 }

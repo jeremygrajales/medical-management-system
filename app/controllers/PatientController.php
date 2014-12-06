@@ -20,9 +20,12 @@ class PatientController extends Controller {
 			$patient = Patient::find($user->id);
 			if($patient != null) {
 				// Retreive Patient
-				
 			}
 			else {
+				// Create a new account for the Patient
+				$account = new Account();
+				$account->patient_id = $user->id;
+				$account->save();
 				// Create a new Patient
 				$patient = new Patient();
 				$patient->fill(Input::all());

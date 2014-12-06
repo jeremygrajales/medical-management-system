@@ -14,12 +14,12 @@ class CreateProcedureTable extends Migration {
 	{
 		Schema::create('procedure', function($table) {
 			$table->increments('id');
-			$table->timestamp('date');
 			$table->integer('acct_id');
 			$table->integer('user_id');
 			$table->string('provider');
 			$table->text('description');
 			$table->decimal('charge', 8, 2);
+			$table->timestamps();
 		});
 	}
 

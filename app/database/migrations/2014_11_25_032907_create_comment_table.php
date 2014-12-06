@@ -14,10 +14,10 @@ class CreateCommentTable extends Migration {
 	{
 		Schema::create('comment', function($table) { 
 			$table->increments('id');
-			$table->integer('message_id');
-			$table->integer('commentor');
-			$table->text('comment');
-			$table->timestamp('timestamp');
+			$table->integer('conversation_id');
+			$table->integer('user_id');
+			$table->text('message');
+			$table->timestamps();
 		});
 	}
 
@@ -28,7 +28,7 @@ class CreateCommentTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('commment');
+		Schema::drop('comment');
 	}
 
 }

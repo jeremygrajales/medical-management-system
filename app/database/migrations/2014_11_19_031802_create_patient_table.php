@@ -15,7 +15,6 @@ class CreatePatientTable extends Migration {
 		Schema::create('patient', function($table) {
 			$table->integer('user_id');
 			$table->primary('user_id');
-			$table->integer('acct_id');
 			$table->string('ssn');
 			$table->date('dob');
 			$table->string('address');

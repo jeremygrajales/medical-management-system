@@ -1,6 +1,6 @@
 <?php
 
-class AppointmentsController extends Controller {
+class AppointmentController extends Controller {
 
 	public function create()
 	{
@@ -12,7 +12,7 @@ class AppointmentsController extends Controller {
 			foreach($staffMembers as $staffMember) {
 				$staff[$staffMember->id] = "Dr. " . $staffMember->first_name . " " . $staffMember->last_name . " " . "(" . $staffMember->position . ")";
 			}
-			return View::make('home/appointments/create', compact('staff', 'user'));
+			return View::make('home/appointment/create', compact('staff', 'user'));
 		}
 		elseif(Request::isMethod('POST')) {
 			$messages = array();
@@ -79,7 +79,7 @@ class AppointmentsController extends Controller {
 			$staff[$staffMember->id] = "Dr. " . $staffMember->first_name . " " . $staffMember->last_name . " " . "(" . $staffMember->position . ")";
 		}
 		
-		return View::make('home/appointments/show', compact('user', 'appointment', 'staff'));
+		return View::make('home/appointment/show', compact('user', 'appointment', 'staff'));
 	}
 	
 	public function showAll($requestID=null) {
@@ -97,12 +97,12 @@ class AppointmentsController extends Controller {
 			$doctor = User::find($appointment->staff_id);
 			$appointment->doctor = $doctor->first_name . ' ' . $doctor->last_name;
 		}
-		return View::make('home/appointments/show-all', compact('user', 'appointments', 'patient'));
+		return View::make('home/appointment/show-all', compact('user', 'appointments', 'patient'));
 	}
 	
 	public function edit() {
 	
-		return View::make('home/appointments/edit', compact('reason', 'constraints'));
+		return View::make('home/appointment/edit', compact('reason', 'constraints'));
 	}
 	
 	public function changeStatus($appointment) {

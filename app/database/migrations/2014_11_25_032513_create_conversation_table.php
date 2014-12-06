@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessageTable extends Migration {
+class CreateConversationTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,13 @@ class CreateMessageTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('message', function($table) {
+		Schema::create('conversation', function($table) {
 			$table->increments('id');
+			$table->string('subject');
 			$table->text('message');
-			$table->timestamp('timestamp');
 			$table->integer('sender');
 			$table->integer('receiver');
+			$table->timestamps();
 		});
 	}
 
@@ -28,7 +29,7 @@ class CreateMessageTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('message');
+		Schema::drop('conversation');
 	}
 
 }

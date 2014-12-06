@@ -14,8 +14,6 @@ class CreateUserTable extends Migration {
 	{
 		Schema::create('user', function($table) {
 			$table->increments('id');
-			$table->integer('patient_id');
-			$table->integer('staff_id');
 			$table->string('first_name');
 			$table->string('last_name');
 			

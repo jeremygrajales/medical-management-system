@@ -43,7 +43,7 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('users/login');
+			return Redirect::guest('~fsef141g1/users/login');
 		}
 	}
 });

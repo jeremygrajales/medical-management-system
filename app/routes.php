@@ -96,10 +96,10 @@ Route::any('/', 'SiteController@getIndex');
 
 
 // Confide routes
-Route::get('users/create', 'UsersController@create');
+Route::get('users/create', array('as' => 'users.create', 'uses' => 'UsersController@create'));
 Route::post('users', 'UsersController@store');
-Route::get('users/login', 'UsersController@login');
-Route::post('users/login', 'UsersController@doLogin');
+Route::get('users/login', array('as' => 'users.login', 'uses' => 'UsersController@login'));
+Route::post('users/login', array('as' => 'users.login', 'uses' => 'UsersController@doLogin'));
 Route::get('users/confirm/{code}', 'UsersController@confirm');
 Route::get('users/forgot_password', 'UsersController@forgotPassword');
 Route::post('users/forgot_password', 'UsersController@doForgotPassword');
